@@ -25,6 +25,25 @@
         </section>
 
         <section class="card">
+          <h2>Sync status</h2>
+          <dl id="sync-status" class="status-list">
+            <div>
+              <dt>Estado</dt>
+              <dd data-status-field="connected">Conectando</dd>
+            </div>
+            <div>
+              <dt>Peers</dt>
+              <dd data-status-field="peers">0</dd>
+            </div>
+            <div>
+              <dt>Objetos</dt>
+              <dd data-status-field="objects">0</dd>
+            </div>
+          </dl>
+          <p id="signaling-status" class="muted">Signaling: pendiente</p>
+        </section>
+
+        <section class="card">
           <h2>Objetos</h2>
           <button id="add-cube" type="button">Add Cube</button>
           <p id="selection-label" class="muted">Seleccion: ninguno</p>

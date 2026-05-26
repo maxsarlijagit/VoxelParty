@@ -5,6 +5,8 @@ const deleteButton = document.querySelector('#delete-object');
 const selectionLabel = document.querySelector('#selection-label');
 const usersList = document.querySelector('#users-list');
 const transformButtons = Array.from(document.querySelectorAll('[data-transform]'));
+const syncStatus = document.querySelector('#sync-status');
+const signalingStatus = document.querySelector('#signaling-status');
 
 const storedUserName = localStorage.getItem('meshmosh-user-name');
 const storedUserColor = localStorage.getItem('meshmosh-user-color');
@@ -78,4 +80,18 @@ export function renderUsers(users) {
     item.append(swatch, name);
     usersList.append(item);
   });
+}
+
+export function renderConnectionStatus(status) {
+  const peers = status.broadcastPeers + status.webrtcPeers;
+  const connectedField = syncStatus.querySelector('[data-status-field="connected"]');
+  const peersField = syncStatus.querySelector('[data-status-field="peers"]');
+  const objectsField = syncStatus.querySelector('[data-status-field="objects"]');
+  const connectedServers = status.signalingServers.filter((server) => server.connected);
+
+  connectedField.textContent = status.connected ? 'Conectado' : 'Desconectado';
+  connectedField.dataset.state = status.connected ? 'ok' : 'warn';
+  peersField.textContent = `${peers} (${status.broadcastPeers} local / ${status.webrtcPeers} p2p)`;
+  objectsField.textContent = String(status.objectCount);
+  signalingStatus.textContent = `Signaling: ${connectedServers.length}/${status.signalingServers.length} servidores conectados`;
 }

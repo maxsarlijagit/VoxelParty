@@ -146,6 +146,37 @@ code {
   gap: 0.5rem;
 }
 
+.status-list {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+}
+
+.status-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.status-list dt {
+  color: #a7b0c0;
+}
+
+.status-list dd {
+  margin: 0;
+  color: #f6f8fb;
+  font-weight: 700;
+  text-align: right;
+}
+
+.status-list dd[data-state="ok"] {
+  color: #44d7b6;
+}
+
+.status-list dd[data-state="warn"] {
+  color: #f7bd59;
+}
+
 .danger {
   color: #fff;
   background: #e35b66;

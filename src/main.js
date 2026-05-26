@@ -5,6 +5,7 @@ import {
   addSharedObject,
   deleteSharedObject,
   getSharedObject,
+  observeConnectionStatus,
   observeSharedObjects,
   observeUsers,
   ROOM_NAME,
@@ -19,7 +20,7 @@ import {
   setSelectedObject,
   syncSceneObjects,
 } from './objects.js';
-import { bindUi, renderUsers, updateSelection } from './ui.js';
+import { bindUi, renderConnectionStatus, renderUsers, updateSelection } from './ui.js';
 
 const viewport = document.querySelector('#viewport');
 const roomName = document.querySelector('#room-name');
@@ -117,6 +118,7 @@ observeSharedObjects((sharedObjects) => {
 });
 
 observeUsers(renderUsers);
+observeConnectionStatus(renderConnectionStatus);
 
 bindUi({
   onAddCube() {
