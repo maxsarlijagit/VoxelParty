@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VoxelParty | MeshMosh</title>
+  </head>
+  <body>
+    <main id="app">
+      <section id="viewport" aria-label="Escena 3D compartida"></section>
+
+      <aside id="panel" aria-label="Controles de la escena">
+        <header>
+          <p class="eyebrow">MeshMosh</p>
+          <h1>Voxel Party</h1>
+          <p class="muted">Sala P2P: <code id="room-name">meshmosh-room</code></p>
+        </header>
+
+        <section class="card">
+          <label for="user-name">Tu nombre</label>
+          <div class="inline-controls">
+            <input id="user-name" type="text" maxlength="24" />
+            <input id="user-color" type="color" value="#44d7b6" aria-label="Color de usuario" />
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Objetos</h2>
+          <button id="add-cube" type="button">Add Cube</button>
+          <p id="selection-label" class="muted">Seleccion: ninguno</p>
+        </section>
+
+        <section class="card">
+          <h2>Transform</h2>
+          <div class="button-grid" aria-label="Mover cubo seleccionado">
+            <button data-transform="move" data-axis="x" data-amount="-0.5" type="button">X-</button>
+            <button data-transform="move" data-axis="x" data-amount="0.5" type="button">X+</button>
+            <button data-transform="move" data-axis="y" data-amount="-0.5" type="button">Y-</button>
+            <button data-transform="move" data-axis="y" data-amount="0.5" type="button">Y+</button>
+            <button data-transform="move" data-axis="z" data-amount="-0.5" type="button">Z-</button>
+            <button data-transform="move" data-axis="z" data-amount="0.5" type="button">Z+</button>
+          </div>
+
+          <div class="button-grid" aria-label="Rotar y escalar cubo seleccionado">
+            <button data-transform="rotate" data-axis="y" data-amount="-0.25" type="button">Rot -</button>
+            <button data-transform="rotate" data-axis="y" data-amount="0.25" type="button">Rot +</button>
+            <button data-transform="scale" data-amount="-0.1" type="button">Scale -</button>
+            <button data-transform="scale" data-amount="0.1" type="button">Scale +</button>
+          </div>
+
+          <button id="delete-object" class="danger" type="button">Delete selected</button>
+        </section>
+
+        <section class="card">
+          <h2>Conectados</h2>
+          <ul id="users-list"></ul>
+        </section>
+      </aside>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
